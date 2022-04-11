@@ -1,0 +1,8 @@
+ class="service-button-row" ID = "service-options"
+    add service buttons to this row with 'innerHTML' obtaining values form an array
+
+ class="selected-services-list" ID = "list-services"
+    add and update this list with 'innerHTML'
+
+<p id="payment-info">
+    generate this paragraph from an array

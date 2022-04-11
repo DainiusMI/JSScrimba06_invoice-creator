@@ -1,9 +1,187 @@
 $primary-color: #1F2937;
 $secondary-color: #3A69D2;
 $accent-color: #D1D4F4;
+
+@mixin flexRow($align, $justify) {
+    display: flex;
+    flex-direction: row;
+    align-items: $align;
+    justify-content: $justify;
+}
+@mixin flexCol($align, $justify) {
+    display: flex;
+    flex-direction: column;
+    align-items: $align;
+    justify-content: $justify;
+}
+
 body * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
+}
+body {
+    @include flexCol(center, center);
+
+}
+.app-container {
+    @include flexCol(center, center);
+
+    width: 550px;
+    color: white;
+}
+.header-section {
+    @include flexCol(center, center);
+    gap: 9px;
+    height: 190px;
+    width: 100%;
+    background-color: $secondary-color;
+    text-align: center
+    h1 {
+        line-height: 40px;
+        font-size: 40px;
+        font-weight: 800;
+    }
+    p {
+        line-height: 28px;
+        font-size: 16px;
+        font-weight: 400;
+        opacity: .8;
+    }
+}
+.content-section {
+    @include flexCol(center, center);
+    width: 100%;
+    padding: 40px;
+    background-color: $primary-color;
+
+}
+
+.service-button-row {
+    @include flexRow(center, space-around);
+    gap: 22px;
+    width: 100%;
+
+    margin-bottom: 43px;
+    .button {
+        background-color: $accent-color;
+
+        width: 143px;
+
+        font-size: 14px;
+        font-weight: 500;
+        color: $primary-color;
+    }
+}
+.button {
+    cursor: pointer;
+    border-radius: .5rem;
+    border: none;
+    height: 45px;
+}
+.selected-services-container {
+    @include flexCol(center, center);
+    width: 100%;
+    
+}
+.selected-services-header{
+    @include flexRow(center, space-between);
+    width: 100%;
+    p {
+        line-height: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        color: $accent-color;
+    }
+}
+.white-line {
+    height: 1px;
+    width: 100%;
+    background-color: $accent-color;
+}
+.selected-services-list {
+    @include flexCol(space-between, center);
+    height: 110px;
+    width: 100%
+}
+.invoice-container {
+    @include flexCol(space-between, center);
+    width: 100%;
+    gap: 10px;
+    .invoice-container-header {
+        @include flexRow(center, space-between);
+        width: 100%;
+        p {
+            line-height: 32px;
+            font-size: 12px;
+            font-weight: 600;
+            color: $accent-color;
+        }
+    }
+}
+.invoice-bill-row {
+    @include flexRow(flex-start , space-between);
+    width: 100%;
+    p:first-of-type {
+        line-height: 15px;
+        font-size: 12px;
+        font-weight: 400;
+        color: $accent-color;
+    }
+    p:last-of-type {
+        line-height: 32px;
+        font-size: 36px;
+        font-weight: 600;
+    }
+}
+#invoice-button {
+    margin-top: 50px;
+    width: 100%;
+    background-color: $secondary-color;
+    @include flexRow(center, center);
+    gap: 14px;
+    img {
+        height: 12px;
+        width: 16px;
+    }
+    span {
+        font-size: 16px;
+        font-weight: 500;
+        color: white;
+        text-align: right;
+    }
+}
+
+// service listing mess
+.selected-services-list {
+    @include flexCol(flex-start, flex-start);
+    margin-top: 16px;
+    width: 100%;
+    .selected-services-row {
+        width: 100%;
+        @include flexRow(center, space-between);
+    }
+    .service-name-container {
+        @include flexRow(center, space-between);
+        gap: 15px;
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .remove-button {
+            font-size: 8px;
+            font-weight: 400;
+            color: $accent-color;
+            cursor: pointer;
+        }
+    }
+}
+.service-cost {
+    font-size: 24px;
+    font-weight: 500;
+    span {
+        font-weight: 300;
+        color: $accent-color;
+    }
 }

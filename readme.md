@@ -1,5 +1,5 @@
 # PASSWORD GENERATOR
-This project is a part of Scrimba free javascript course
+This is a solo project that is a part of Scrimba free javascript course
 
 ### LINK TO FIGMA DESIGN:
 https://www.figma.com/file/roUn8DT7zHTI9tcL2JXNZG/Invoice-Generator?node-id=0%3A1
