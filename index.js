@@ -3,6 +3,7 @@ const serviceOptionList = document.getElementById('service-options');
 const selectedServiceList = document.getElementById('selected-services');
 const paymentOptionsEl = document.getElementById('payment-info');
 const finalBillEl = document.getElementById('bill');
+const sendInvoice = document.getElementById('invoice-button');
 
 // information arrays
 const serviceOptionsArray = [
@@ -86,10 +87,21 @@ function sumOrder() {
     bill = sum;
 }
 
+// button that resets entered selected values
+sendInvoice.addEventListener('click', function(){
+    orderedServicesArray = [];
+    bill = 0;
+    finalBillEl.textContent = '';
+    renderOrderedServices();
+})
+
 const removeButton = document.querySelectorAll('.remove-button');
+console.log(removeButton)
 removeButton.forEach(function (i) {
     i.addEventListener('click', function (){
         //orderedServicesArray.push(serviceOptionsArray[i.value]);
         console.log('bam');
+       
     })
 })
+

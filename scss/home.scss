@@ -63,7 +63,6 @@ body {
     gap: 22px;
     width: 100%;
 
-    margin-bottom: 43px;
     .button {
         background-color: $accent-color;
 
@@ -87,6 +86,8 @@ body {
 }
 .selected-services-header{
     @include flexRow(center, space-between);
+    margin-top: 43px;
+    margin-bottom: 16px;
     width: 100%;
     p {
         line-height: 20px;
@@ -106,9 +107,11 @@ body {
     width: 100%
 }
 .invoice-container {
-    @include flexCol(space-between, center);
-    width: 100%;
+    @include flexCol(space-between, flex-start);
+    height: 75px;
     gap: 10px;
+    width: 100%;
+ 
     .invoice-container-header {
         @include flexRow(center, space-between);
         width: 100%;
@@ -156,7 +159,9 @@ body {
 // service listing mess
 .selected-services-list {
     @include flexCol(flex-start, flex-start);
-    margin-top: 16px;
+    gap: 24px;
+
+    height: 160px;
     width: 100%;
     .selected-services-row {
         width: 100%;
