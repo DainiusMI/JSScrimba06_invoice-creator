@@ -21,7 +21,7 @@ function renderServiceOptionList() {
     let serviceOptionListDOM = '';
     for (let i = 0; i < serviceOptionsArray.length; i++){
         serviceOptionListDOM += `
-            <button value="${i}" id="service-btn${i}" class="button service-button">
+            <button value='${i}' id='service-btn${i}' class='button service-button'>
                 ${serviceOptionsArray[i].name}\: \$${serviceOptionsArray[i].price}
             </button>
         `;
@@ -56,7 +56,7 @@ serviceButtonGroup.forEach(function (i) {
         }
         renderOrderedServices();
         sumOrder()
-        finalBillEl.textContent ="\$" + bill;
+        finalBillEl.textContent ='\$' + bill;
     })
 })
 
@@ -65,12 +65,12 @@ function renderOrderedServices(){
     let selectedServiceListDOM = '';
     for (let i = 0; i < orderedServicesArray.length; i++){
         selectedServiceListDOM += `
-            <div class="selected-services-row">
-                <div class="service-name-container">
+            <div class='selected-services-row'>
+                <div class='service-name-container'>
                     <h3>${orderedServicesArray[i].name}</h3>
-                    <p class="remove-button">remove</p>
+                    <p class='remove-button'>remove</p>
                 </div>
-                <p class="service-cost"><span>$</span>${orderedServicesArray[i].price}</p>
+                <p class='service-cost'><span>$</span>${orderedServicesArray[i].price}</p>
             </div>
         `;
     }
