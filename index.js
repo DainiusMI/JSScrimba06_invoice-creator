@@ -21,7 +21,7 @@ function renderServiceOptionList() {
     let serviceOptionListDOM = '';
     for (let i = 0; i < serviceOptionsArray.length; i++){
         serviceOptionListDOM += `
-            <button value='${i}' id='service-btn${i}' class='button service-button'>
+            <button value='${i}' class='button service-button'>
                 ${serviceOptionsArray[i].name}\: \$${serviceOptionsArray[i].price}
             </button>
         `;
@@ -34,7 +34,7 @@ renderServiceOptionList();
 function renderPaymentMethods(){
     let paymentOptionsString = '';
     for (let i = 0; i < paymentOptionsArray.length; i++){
-        if (i == paymentOptionsArray.length-1) {
+        if (i === paymentOptionsArray.length-1) {
             paymentOptionsString += 'or ' + paymentOptionsArray[i];
         }
         else {
@@ -95,9 +95,9 @@ sendInvoice.addEventListener('click', function(){
     renderOrderedServices();
 })
 
-const removeButton = document.querySelectorAll('.remove-button');
+const removeButtonEl = document.querySelectorAll('.remove-button');
 console.log(removeButton)
-removeButton.forEach(function (i) {
+removeButtonEl.forEach(function (i) {
     i.addEventListener('click', function (){
         //orderedServicesArray.push(serviceOptionsArray[i.value]);
         console.log('bam');
