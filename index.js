@@ -16,6 +16,8 @@ let orderedServicesArray = [];
 
 let bill = 0;
 
+
+
 // generate html code for option list DOM elements
 function renderServiceOptionList() {
     let serviceOptionListDOM = '';
@@ -54,9 +56,7 @@ serviceButtonGroup.forEach(function (i) {
         if (orderedServicesArray.includes(nameKey) == false){
             orderedServicesArray.push(serviceOptionsArray[i.value]);
         }
-        renderOrderedServices();
-        sumOrder()
-        finalBillEl.textContent ='\$' + bill;
+        runApp();
     })
 })
 
@@ -68,7 +68,7 @@ function renderOrderedServices(){
             <div class='selected-services-row'>
                 <div class='service-name-container'>
                     <h3>${orderedServicesArray[i].name}</h3>
-                    <p class='remove-button'>remove</p>
+                    <p value='${i}' class='remove-button'>remove</p>
                 </div>
                 <p class='service-cost'><span>$</span>${orderedServicesArray[i].price}</p>
             </div>
@@ -83,7 +83,6 @@ function sumOrder() {
     for (let i = 0; i < orderedServicesArray.length; i++){
         sum += orderedServicesArray[i].price;
     }
-    console.log(sum);
     bill = sum;
 }
 
@@ -95,13 +94,39 @@ sendInvoice.addEventListener('click', function(){
     renderOrderedServices();
 })
 
-const removeButtonEl = document.querySelectorAll('.remove-button');
-console.log(removeButton)
-removeButtonEl.forEach(function (i) {
-    i.addEventListener('click', function (){
-        //orderedServicesArray.push(serviceOptionsArray[i.value]);
-        console.log('bam');
-       
-    })
-})
 
+
+
+
+// following DOM changes in  selected services list
+let removeButtonElArray = [];
+const config = {
+  attributes: true, 
+  childList: true, 
+  characterData: true
+};
+  
+const callback = mutations => {  
+  mutations.forEach(mutation => {
+    if (mutation.type === 'childList') {
+      removeButtonElArray = document.querySelectorAll('.remove-button');
+
+    }
+// removing ordered services from the list
+    removeButtonElArray.forEach(function (i) {
+        i.addEventListener('click', function (){
+            orderedServicesArray.pop(i.value);
+            runApp();
+        })
+    })
+
+  });
+}
+const observer = new MutationObserver(callback);
+observer.observe(selectedServiceList, config);
+
+function runApp() {
+    renderOrderedServices();
+    sumOrder()
+    finalBillEl.textContent ='\$' + bill;
+}
