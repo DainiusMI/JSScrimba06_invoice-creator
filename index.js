@@ -109,7 +109,10 @@ const callback = mutations => {
 // removing ordered services from the list
     removeButtonElArray.forEach(function (i) {
         i.addEventListener('click', function (){
-            orderedServicesArray.pop(i.value);
+            //let index = selectedServiceList.getElementsByClassName('remove-button');
+            let index = this.getAttribute('value');
+            orderedServicesArray.splice(index, 1)
+            console.log(orderedServicesArray);
             runApp();
         })
     })
