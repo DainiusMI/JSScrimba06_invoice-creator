@@ -16,3 +16,4 @@ https://www.figma.com/file/roUn8DT7zHTI9tcL2JXNZG/Invoice-Generator?node-id=0%3A
 
 #### PERSONAL GAOLS:
 - Create DOM elements that could changed in future with Javascript (like offered services or payment methods)
+- Highlight buttons of already selected services 

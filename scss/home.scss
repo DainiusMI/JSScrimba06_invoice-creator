@@ -71,6 +71,10 @@ body {
         font-size: 14px;
         font-weight: 500;
         color: $primary-color;
+        &.service-is-selected {
+            color: white;
+            background-color: $secondary-color;
+        }
     }
 }
 .button {

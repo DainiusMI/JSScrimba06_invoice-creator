@@ -115,6 +115,11 @@ body {
   color: #1F2937;
 }
 
+.service-button-row .button.service-is-selected {
+  color: white;
+  background-color: #3A69D2;
+}
+
 .button {
   cursor: pointer;
   border-radius: .5rem;

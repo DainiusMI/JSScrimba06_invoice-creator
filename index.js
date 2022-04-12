@@ -45,14 +45,18 @@ function renderPaymentMethods(){
 }
 renderPaymentMethods()
 
+
+let serviceOrderList = [];
 // adding ordered services to an array
 const serviceButtonGroup = document.querySelectorAll('.service-button');
 serviceButtonGroup.forEach(function (i) {
     i.addEventListener('click', function (){
+        this.classList.add('service-is-selected');
         let nameKey = serviceOptionsArray[i.value];
         // checking if selected service was not already ordered
         if (orderedServicesArray.includes(nameKey) == false){
             orderedServicesArray.push(serviceOptionsArray[i.value]);
+            serviceOrderList.push(i.value);
         }
         runApp();
     })
@@ -89,6 +93,9 @@ sendInvoice.addEventListener('click', function(){
     orderedServicesArray = [];
     bill = 0;
     finalBillEl.textContent = '';
+    for (let i= 0; i < serviceButtonGroup.length; i++) {
+        serviceButtonGroup[i].classList.remove('service-is-selected');
+    }
     renderOrderedServices();
 })
 
@@ -109,10 +116,10 @@ const callback = mutations => {
 // removing ordered services from the list
     removeButtonElArray.forEach(function (i) {
         i.addEventListener('click', function (){
-            //let index = selectedServiceList.getElementsByClassName('remove-button');
             let index = this.getAttribute('value');
-            orderedServicesArray.splice(index, 1)
-            console.log(orderedServicesArray);
+            orderedServicesArray.splice(index, 1);
+            serviceButtonGroup[serviceOrderList[index]].classList.remove('service-is-selected');
+            serviceOrderList.splice(index, 1)
             runApp();
         })
     })
