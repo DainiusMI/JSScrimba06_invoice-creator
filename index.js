@@ -16,9 +16,7 @@ let orderedServicesArray = [];
 
 let bill = 0;
 
-
-
-// generate html code for option list DOM elements
+// generate html DOM elements code for option list 
 function renderServiceOptionList() {
     let serviceOptionListDOM = '';
     for (let i = 0; i < serviceOptionsArray.length; i++){
@@ -94,10 +92,6 @@ sendInvoice.addEventListener('click', function(){
     renderOrderedServices();
 })
 
-
-
-
-
 // following DOM changes in  selected services list
 let removeButtonElArray = [];
 const config = {
@@ -119,9 +113,9 @@ const callback = mutations => {
             runApp();
         })
     })
-
   });
 }
+
 const observer = new MutationObserver(callback);
 observer.observe(selectedServiceList, config);
 
