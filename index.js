@@ -43,7 +43,7 @@ function renderPaymentMethods(){
     }
     paymentOptionsEl.innerHTML = `We accept ${paymentOptionsString}`;
 }
-renderPaymentMethods()
+renderPaymentMethods();
 
 
 let serviceOrderList = [];
@@ -91,12 +91,12 @@ function sumOrder() {
 // button that resets entered selected values
 sendInvoice.addEventListener('click', function(){
     orderedServicesArray = [];
-    bill = 0;
+    bill = '\$' + 0;
     finalBillEl.textContent = '';
     for (let i= 0; i < serviceButtonGroup.length; i++) {
         serviceButtonGroup[i].classList.remove('service-is-selected');
     }
-    renderOrderedServices();
+    runApp()
 })
 
 // following DOM changes in  selected services list
