@@ -91,6 +91,7 @@ function sumOrder() {
 // button that resets entered selected values
 sendInvoice.addEventListener('click', function(){
     orderedServicesArray = [];
+    serviceOrderList = [];
     bill = '\$' + 0;
     finalBillEl.textContent = '';
     for (let i= 0; i < serviceButtonGroup.length; i++) {
@@ -99,7 +100,7 @@ sendInvoice.addEventListener('click', function(){
     runApp()
 })
 
-// following DOM changes in  selected services list
+// following DOM changes in selected services list
 let removeButtonElArray = [];
 const config = {
   attributes: true, 
